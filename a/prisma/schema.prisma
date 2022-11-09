@@ -6,11 +6,12 @@ generator client {
 
 generator erd {
   provider = "prisma-erd-generator"
+  output   = env("ERD_FILE_PATH") // NOTE: Commenting out this will make the installation work
 }
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:password@localhost:5432/postgres"
+  url      = env("DATABASE_URL")
 }
 
 model Table {
